@@ -1,5 +1,3 @@
-# AGENTS.md (Connection Wizard)
-
 ## Scope
 Guidance here applies only to the UI and its tRPC calls.
 
