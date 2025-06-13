@@ -7,6 +7,9 @@
   "scripts": {
     "nx": "nx"
   },
+  "engines": {
+    "node": ">=22"
+  },
   "devDependencies": {
     "nx": "^21.2.0"
   }
