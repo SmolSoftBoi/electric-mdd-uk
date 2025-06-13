@@ -17,16 +17,3 @@ observability standards. The project exposes the underlying medical device
 dataset through a Next.js and Nx stack, sourced read-only via Prisma to keep
 records consistent.
 
-## Contributing
-
-We welcome improvements and bug fixes. Before opening a pull request:
-
-1. Format and lint the code with `yarn lint --fix` and `yarn format`.
-2. Check types via `yarn ts:check` and run tests with `yarn test`.
-3. Use 2-space indentation and prefer single quotes in TypeScript files.
-4. Commit messages should be imperative, and PR titles follow the
-   `feat(scope): summary` convention.
-5. Label the PR with `release:patch`, `release:minor`, or `release:major` to
-   trigger semantic-release.
-
-For questions or new ideas, please open an issue first.
