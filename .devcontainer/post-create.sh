@@ -5,6 +5,9 @@ set -euo pipefail
 
 yarn install
 
+# Install Nx globally so commands can run without yarn
+yarn global add nx
+
 yarn lint --fix
 
 yarn format
