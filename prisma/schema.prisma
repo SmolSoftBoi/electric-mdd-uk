@@ -13,3 +13,108 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model MarketRole {
+  code        String @id @db.Char(1)
+  description String
+
+  @@map("market_role")
+}
+
+model MarketParticipant {
+  id            String  @id
+  name          String
+  poolMemberId  String?
+  roles         MarketParticipantRole[]
+
+  @@map("market_participant")
+}
+
+model MarketParticipantRole {
+  marketParticipantId String
+  roleCode            String
+  marketRole         MarketRole @relation(fields: [roleCode], references: [code])
+  effectiveFrom       DateTime
+  effectiveTo         DateTime?
+  address1            String?
+  address2            String?
+  address3            String?
+  address4            String?
+  address5            String?
+  address6            String?
+  address7            String?
+  address8            String?
+  address9            String?
+  postCode            String?
+  distributorShortCode String?
+  marketParticipant   MarketParticipant @relation(fields: [marketParticipantId], references: [id])
+
+  @@id([marketParticipantId, roleCode, effectiveFrom])
+  @@map("market_participant_role")
+}
+
+model GspGroup {
+  id   String @id
+  name String
+
+  @@map("gsp_group")
+}
+
+model ProfileClass {
+  id                         Int      @id
+  effectiveFromSettlementDate DateTime
+  description                String
+  switchedLoadProfileClassInd Boolean
+  effectiveToSettlementDate   DateTime?
+
+  @@map("profile_class")
+}
+
+model ValidMtcLlfcCombination {
+  meterTimeswitchClassId                String
+  meterTimeswitchClassEffectiveFrom     DateTime
+  marketParticipantId                   String
+  marketParticipantEffectiveFrom        DateTime
+  lineLossFactorClassId                 String
+  lineLossFactorClassEffectiveFrom      DateTime
+  effectiveTo                           DateTime?
+
+  @@id([
+    meterTimeswitchClassId,
+    meterTimeswitchClassEffectiveFrom,
+    marketParticipantId,
+    marketParticipantEffectiveFrom,
+    lineLossFactorClassId,
+    lineLossFactorClassEffectiveFrom
+  ])
+  @@map("valid_mtc_llfc_combination")
+}
+
+model ValidMtcLlfcSscPcCombination {
+  meterTimeswitchClassId                    String
+  meterTimeswitchClassEffectiveFrom         DateTime
+  marketParticipantId                       String
+  marketParticipantEffectiveFrom            DateTime
+  standardSettlementConfigurationId         String
+  standardSettlementConfigurationEffectiveFrom DateTime
+  lineLossFactorClassId                     String
+  lineLossFactorClassEffectiveFrom          DateTime
+  profileClassId                            Int
+  profileClassEffectiveFrom                 DateTime
+  effectiveTo                               DateTime?
+  preservedTariffIndicator                  String
+
+  @@id([
+    meterTimeswitchClassId,
+    meterTimeswitchClassEffectiveFrom,
+    marketParticipantId,
+    marketParticipantEffectiveFrom,
+    standardSettlementConfigurationId,
+    standardSettlementConfigurationEffectiveFrom,
+    lineLossFactorClassId,
+    lineLossFactorClassEffectiveFrom,
+    profileClassId,
+    profileClassEffectiveFrom
+  ])
+  @@map("valid_mtc_llfc_ssc_pc_combination")
+}
