@@ -5,4 +5,5 @@
 2. Wait for dependencies to install with Yarn.
 3. Ports `3000` and `6006` are forwarded.
 4. Formatting, linting, and type checks run automatically after creation.
+5. The Nx CLI is installed globally so you can run `nx` directly.
 
