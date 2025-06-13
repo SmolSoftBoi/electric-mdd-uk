@@ -31,7 +31,8 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      }
+      },
+      "exclude": ["apps/mdd-loader-e2e/**/*"]
     }
   ],
   "generators": {
@@ -44,6 +45,11 @@
   },
   "targetDefaults": {
     "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["default", "^default"]
+    },
+    "@nx/esbuild:esbuild": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["default", "^default"]
