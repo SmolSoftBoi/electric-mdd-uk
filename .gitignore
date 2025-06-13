@@ -13,3 +13,7 @@
 
 # Certificates and keys
 *.pem
+
+# Next.js
+.next
+out
