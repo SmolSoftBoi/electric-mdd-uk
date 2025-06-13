@@ -1,0 +1,13 @@
+{
+  "name": "electric-mdd-uk",
+  "version": "1.0.0",
+  "repository": "https://github.com/SmolSoftBoi/electric-mdd-uk",
+  "author": "Kristian Matthews-Kennington <kristian@matthews-kennington.com>",
+  "private": true,
+  "scripts": {
+    "nx": "nx"
+  },
+  "devDependencies": {
+    "nx": "^21.2.0"
+  }
+}
