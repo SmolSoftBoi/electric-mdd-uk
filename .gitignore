@@ -4,6 +4,11 @@
 .nx/cache
 .nx/workspace-data
 
+node_modules/
+dist/
+coverage/
+yarn-error.log
+
 
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
