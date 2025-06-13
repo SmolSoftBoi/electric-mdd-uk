@@ -13,7 +13,14 @@
 A self-service web and API tool that ensures ≥ 99.5% of new-connection quotes use
 valid top-line combinations, slashing average quote time and saving on
 rejection fees and rework, while meeting engineering, compliance and
-observability standards. The project exposes the underlying medical device
-dataset through a Next.js and Nx stack, sourced read-only via Prisma to keep
-records consistent.
+observability standards. The project exposes the underlying Market Domain Data
+through a Next.js and Nx stack, sourced read-only via Prisma to keep records
+consistent.
+
+## Contributing
+
+Run `yarn lint --fix`, `yarn format` and `yarn ts:check` before committing.
+Execute `yarn nx run-many --target=test` and `yarn test` to verify behaviour.
+Use the PR title pattern `feat(scope): summary` and label your PR with
+`release:patch`, `release:minor` or `release:major`.
 
