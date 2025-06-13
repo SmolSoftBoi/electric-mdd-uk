@@ -10,4 +10,8 @@ describe('parseDate', () => {
   it('handles empty string', () => {
     expect(parseDate('')).toBeNull();
   });
+
+  it('returns null on invalid format', () => {
+    expect(parseDate('32/13/2024')).toBeNull();
+  });
 });

@@ -1,8 +1,10 @@
 'use strict';
 
-import { PrismaClient, Prisma } from '../generated/prisma';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { parse } from 'date-fns';
+import { parse as parseCsv } from 'csv-parse/sync';
+import { PrismaClient, Prisma } from '../generated/prisma';
 
 const prisma = new PrismaClient();
 
@@ -12,11 +14,16 @@ const prisma = new PrismaClient();
 export async function seed(): Promise<void> {
   const dataDir = path.join(__dirname, '..', 'data');
 
-  await prisma.$transaction(async (tx) => {
-    await seedMarketRoles(tx, dataDir);
-    await seedMarketParticipants(tx, dataDir);
-    await seedMarketParticipantRoles(tx, dataDir);
-  });
+  try {
+    await prisma.$transaction(async (tx) => {
+      await seedMarketRoles(tx, dataDir);
+      await seedMarketParticipants(tx, dataDir);
+      await seedMarketParticipantRoles(tx, dataDir);
+    });
+  } catch (err) {
+    console.error('❌ Seed failed:', err);
+    throw err;
+  }
 }
 
 export async function seedMarketRoles(
@@ -76,11 +83,13 @@ export async function seedMarketParticipantRoles(
 }
 
 export async function readCsv(file: string): Promise<string[][]> {
-  const content = await fs.readFile(file, 'utf8');
-  return content
-    .trim()
-    .split(/\r?\n/)
-    .map((line) => line.replace(/^"|"$/g, '').split('","'));
+  try {
+    const content = await fs.readFile(file, 'utf8');
+    return parseCsv(content, { relaxQuotes: true });
+  } catch (err) {
+    console.error('Failed to read CSV:', file, err);
+    throw err;
+  }
 }
 
 /**
@@ -88,8 +97,15 @@ export async function readCsv(file: string): Promise<string[][]> {
  */
 export function parseDate(value: string | undefined): Date | null {
   if (!value) return null;
-  const [d, m, y] = value.split('/');
-  return new Date(Date.UTC(Number(y), Number(m) - 1, Number(d)));
+  try {
+    const date = parse(value, 'dd/MM/yyyy', new Date());
+    if (isNaN(date.getTime())) return null;
+    return new Date(
+      Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+    );
+  } catch {
+    return null;
+  }
 }
 
 if (require.main === module) {
