@@ -13,3 +13,97 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum MarketParticipantRoleCode {
+  ROLE0 @map("0")
+  ROLE1 @map("1")
+  ROLE2 @map("2")
+  ROLE3 @map("3")
+  ROLE4 @map("4")
+  ROLE5 @map("5")
+  ROLE6 @map("6")
+  ROLE7 @map("7")
+  ROLE8 @map("8")
+  ROLE9 @map("9")
+  ROLEA @map("A")
+  ROLEB @map("B")
+  ROLEC @map("C")
+  ROLED @map("D")
+  ROLEE @map("E")
+  ROLEF @map("F")
+  ROLEG @map("G")
+  ROLEH @map("H")
+  ROLEI @map("I")
+  ROLEJ @map("J")
+  ROLEK @map("K")
+  ROLEL @map("L")
+  ROLEM @map("M")
+  ROLEN @map("N")
+  ROLEO @map("O")
+  ROLEP @map("P")
+  ROLEQ @map("Q")
+  ROLER @map("R")
+  ROLES @map("S")
+  ROLET @map("T")
+  ROLEU @map("U")
+  ROLEV @map("V")
+  ROLEW @map("W")
+  ROLEX @map("X")
+  ROLEY @map("Y")
+  ROLEZ @map("Z")
+}
+
+model MarketRole {
+  code        MarketParticipantRoleCode @id
+  description String
+
+  @@map("market_role")
+}
+
+model MarketParticipant {
+  id            String  @id
+  name          String
+  poolMemberId  String?
+  roles         MarketParticipantRole[]
+
+  @@map("market_participant")
+}
+
+model MarketParticipantRole {
+  marketParticipantId String
+  roleCode            MarketParticipantRoleCode
+  effectiveFrom       DateTime
+  effectiveTo         DateTime?
+  address1            String?
+  address2            String?
+  address3            String?
+  address4            String?
+  address5            String?
+  address6            String?
+  address7            String?
+  address8            String?
+  address9            String?
+  postCode            String?
+  distributorShortCode String?
+  marketParticipant   MarketParticipant @relation(fields: [marketParticipantId], references: [id])
+
+  @@id([marketParticipantId, roleCode, effectiveFrom])
+  @@map("market_participant_role")
+}
+
+model GspGroup {
+  id   String @id
+  name String
+
+  @@map("gsp_group")
+}
+
+model ProfileClass {
+  id                         Int      @id
+  effectiveFromSettlementDate DateTime
+  description                String
+  switchedLoadProfileClassInd Boolean
+  effectiveToSettlementDate   DateTime?
+
+  @@map("profile_class")
+}
