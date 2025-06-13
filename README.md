@@ -10,10 +10,12 @@
 
 ## Project Goals
 
-The aim of this project is to build a reliable, open-source medical device
-database for the UK. We use a Next.js and Nx stack to host and visualise the
-data. All device information is retrieved through the read-only Prisma client
-so the dataset stays consistent.
+A self-service web and API tool that ensures ≥ 99.5% of new-connection quotes use
+valid top-line combinations, slashing average quote time and saving on
+rejection fees and rework, while meeting engineering, compliance and
+observability standards. The project exposes the underlying medical device
+dataset through a Next.js and Nx stack, sourced read-only via Prisma to keep
+records consistent.
 
 ## Contributing
 
