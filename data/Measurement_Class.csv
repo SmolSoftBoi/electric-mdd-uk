@@ -1,0 +1,8 @@
+"Measurement Class Id","Measurement Class Desc","Effective From Settlement Date (MCLA)","Effective To Settlement Date (MCLA)"
+"A","Non Half Hourly Metered","01/04/1996",""
+"B","Non Half Hourly Unmetered","01/04/1996",""
+"C","HH metered in 100kW Premises","01/04/1996",""
+"D","Half Hourly Unmetered","01/04/1996",""
+"E","HH metered sub 100kW CT","29/10/1999",""
+"F","HH metered sub 100kW domestic","05/11/2015",""
+"G","HH metered sub 100kW nondom wc","05/11/2015",""
