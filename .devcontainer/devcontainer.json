@@ -1,6 +1,6 @@
 {
   "name": "Electric MDD UK Dev Container",
-  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-22-bullseye",
+  "image": "node:22-bullseye",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "forwardPorts": [3000, 6006]
 }
