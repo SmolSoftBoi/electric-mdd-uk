@@ -19,6 +19,8 @@ export async function seed(): Promise<void> {
       await seedMarketRoles(tx, dataDir);
       await seedMarketParticipants(tx, dataDir);
       await seedMarketParticipantRoles(tx, dataDir);
+      await seedValidMtcLlfcCombinations(tx, dataDir);
+      await seedValidMtcLlfcSscPcCombinations(tx, dataDir);
     });
   } catch (err) {
     console.error('❌ Seed failed:', err);
@@ -28,7 +30,7 @@ export async function seed(): Promise<void> {
 
 export async function seedMarketRoles(
   tx: Prisma.TransactionClient,
-  dir: string
+  dir: string,
 ): Promise<void> {
   const rows = await readCsv(path.join(dir, 'Market_Role.csv'));
   rows.shift();
@@ -40,7 +42,7 @@ export async function seedMarketRoles(
 
 export async function seedMarketParticipants(
   tx: Prisma.TransactionClient,
-  dir: string
+  dir: string,
 ): Promise<void> {
   const rows = await readCsv(path.join(dir, 'Market_Participant.csv'));
   rows.shift();
@@ -56,7 +58,7 @@ export async function seedMarketParticipants(
 
 export async function seedMarketParticipantRoles(
   tx: Prisma.TransactionClient,
-  dir: string
+  dir: string,
 ): Promise<void> {
   const rows = await readCsv(path.join(dir, 'Market_Participant_Role.csv'));
   rows.shift();
@@ -82,6 +84,53 @@ export async function seedMarketParticipantRoles(
   });
 }
 
+export async function seedValidMtcLlfcCombinations(
+  tx: Prisma.TransactionClient,
+  dir: string,
+): Promise<void> {
+  const rows = await readCsv(path.join(dir, 'Valid_MTC_LLFC_Combination.csv'));
+  rows.shift();
+  await tx.validMtcLlfcCombination.createMany({
+    data: rows.map((r) => ({
+      meterTimeswitchClassId: r[0],
+      meterTimeswitchClassEffectiveFrom: parseDate(r[1])!,
+      marketParticipantId: r[2],
+      marketParticipantEffectiveFrom: parseDate(r[3])!,
+      lineLossFactorClassId: r[4],
+      lineLossFactorClassEffectiveFrom: parseDate(r[5])!,
+      effectiveTo: parseDate(r[6]),
+    })),
+    skipDuplicates: true,
+  });
+}
+
+export async function seedValidMtcLlfcSscPcCombinations(
+  tx: Prisma.TransactionClient,
+  dir: string,
+): Promise<void> {
+  const rows = await readCsv(
+    path.join(dir, 'Valid_MTC_LLFC_SSC_PC_Combination.csv'),
+  );
+  rows.shift();
+  await tx.validMtcLlfcSscPcCombination.createMany({
+    data: rows.map((r) => ({
+      meterTimeswitchClassId: r[0],
+      meterTimeswitchClassEffectiveFrom: parseDate(r[1])!,
+      marketParticipantId: r[2],
+      marketParticipantEffectiveFrom: parseDate(r[3])!,
+      standardSettlementConfigurationId: r[4],
+      standardSettlementConfigurationEffectiveFrom: parseDate(r[5])!,
+      lineLossFactorClassId: r[6],
+      lineLossFactorClassEffectiveFrom: parseDate(r[7])!,
+      profileClassId: Number(r[8]),
+      profileClassEffectiveFrom: parseDate(r[9])!,
+      effectiveTo: parseDate(r[10]),
+      preservedTariffIndicator: r[11],
+    })),
+    skipDuplicates: true,
+  });
+}
+
 export async function readCsv(file: string): Promise<string[][]> {
   try {
     const content = await fs.readFile(file, 'utf8');
@@ -101,7 +150,7 @@ export function parseDate(value: string | undefined): Date | null {
     const date = parse(value, 'dd/MM/yyyy', new Date());
     if (isNaN(date.getTime())) return null;
     return new Date(
-      Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+      Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()),
     );
   } catch {
     return null;
