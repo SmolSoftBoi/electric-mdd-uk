@@ -17,3 +17,5 @@
 # Next.js
 .next
 out
+
+/generated/prisma
