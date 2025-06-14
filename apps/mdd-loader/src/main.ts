@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable @nx/enforce-module-boundaries */
 
 import { parseArgs } from 'node:util';
 import path from 'node:path';
@@ -43,6 +44,6 @@ export async function main(argv: string[] = process.argv.slice(2)): Promise<void
 }
 
 if (require.main === module) {
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+   
   main();
 }
