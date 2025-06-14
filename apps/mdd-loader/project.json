@@ -59,6 +59,19 @@
       "options": {
         "passWithNoTests": true
       }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["apps/mdd-loader/**/*.ts"]
+      }
+    },
+    "typecheck": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "noEmit": true,
+        "tsConfig": "apps/mdd-loader/tsconfig.app.json"
+      }
     }
   }
 }
