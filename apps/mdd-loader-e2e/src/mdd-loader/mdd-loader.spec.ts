@@ -7,6 +7,6 @@ describe('CLI tests', () => {
 
     const output = execSync(`node ${cliPath}`).toString();
 
-    expect(output).toMatch(/✅ Seed completed/);
+    expect(output).toMatch(/✅ Seed completed from/);
   });
 });
