@@ -2,7 +2,7 @@
 
 import { parseArgs } from 'node:util';
 import path from 'node:path';
-import { prisma, seed } from '../../../prisma/seed';
+import { prisma, seed } from 'prisma/seed';
 
 /**
  * Parse CLI arguments into options used by the seeder.
@@ -27,7 +27,9 @@ export function parseOptions(argv: string[]): { dir: string } {
  * @param argv - Arguments from the command line; defaults to `process.argv`.
  * @returns Resolves when the seed completes or rejects on error.
  */
-export async function main(argv: string[] = process.argv.slice(2)): Promise<void> {
+export async function main(
+  argv: string[] = process.argv.slice(2)
+): Promise<void> {
   const { dir } = parseOptions(argv);
   const dataDir = path.resolve(dir);
 
@@ -43,6 +45,5 @@ export async function main(argv: string[] = process.argv.slice(2)): Promise<void
 }
 
 if (require.main === module) {
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   main();
 }
