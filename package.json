@@ -5,7 +5,8 @@
   "author": "Kristian Matthews-Kennington <kristian@matthews-kennington.com>",
   "private": true,
   "scripts": {
-    "nx": "nx"
+    "nx": "nx",
+    "e2e": "nx run-many --target=e2e"
   },
   "engines": {
     "node": ">=22"

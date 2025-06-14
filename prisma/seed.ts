@@ -6,13 +6,13 @@ import { parse } from 'date-fns';
 import { parse as parseCsv } from 'csv-parse/sync';
 import { PrismaClient, Prisma } from '../generated/prisma';
 
-const prisma = new PrismaClient();
+export const prisma = new PrismaClient();
 
 /**
  * Seed the database with Market Domain Data from CSV files.
  */
-export async function seed(): Promise<void> {
-  const dataDir = path.join(__dirname, '..', 'data');
+export async function seed(dir: string = path.join(__dirname, '..', 'data')): Promise<void> {
+  const dataDir = dir;
 
   try {
     await prisma.$transaction(async (tx) => {
