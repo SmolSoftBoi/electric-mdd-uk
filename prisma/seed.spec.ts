@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import path from 'node:path';
-import { parseDate, readCsv } from './seed';
+import { parseDate, readCsv } from 'engine';
 
 describe('parseDate', () => {
   it('parses dd/MM/yyyy', () => {

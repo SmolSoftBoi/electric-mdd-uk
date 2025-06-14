@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "engine": ["packages/engine/src/index.ts"]
+      "engine": ["packages/engine/src/index.ts"],
+      "generated/prisma": ["generated/prisma.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
