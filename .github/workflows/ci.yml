@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint
+        run: yarn lint --fix
+
+      - name: Format
+        run: yarn format
+
+      - name: Type check
+        run: yarn ts:check
+
+      - name: Unit tests
+        run: yarn nx run-many --target=test
+
+      - name: Test script
+        run: yarn test
+
+      - name: E2E tests
+        run: yarn e2e
