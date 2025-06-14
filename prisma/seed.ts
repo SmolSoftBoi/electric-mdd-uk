@@ -28,6 +28,12 @@ export async function seed(dir: string = path.join(__dirname, '..', 'data')): Pr
   }
 }
 
+/**
+ * Load Market Roles from the CSV drop.
+ *
+ * @param tx - Prisma transaction context
+ * @param dir - Directory containing the CSV files
+ */
 export async function seedMarketRoles(
   tx: Prisma.TransactionClient,
   dir: string,
@@ -40,6 +46,12 @@ export async function seedMarketRoles(
   });
 }
 
+/**
+ * Load Market Participants from the CSV drop.
+ *
+ * @param tx - Prisma transaction context
+ * @param dir - Directory containing the CSV files
+ */
 export async function seedMarketParticipants(
   tx: Prisma.TransactionClient,
   dir: string,
@@ -56,6 +68,12 @@ export async function seedMarketParticipants(
   });
 }
 
+/**
+ * Load Market Participant Roles from the CSV drop.
+ *
+ * @param tx - Prisma transaction context
+ * @param dir - Directory containing the CSV files
+ */
 export async function seedMarketParticipantRoles(
   tx: Prisma.TransactionClient,
   dir: string,
@@ -84,6 +102,12 @@ export async function seedMarketParticipantRoles(
   });
 }
 
+/**
+ * Load valid MTC to LLFC combinations from the CSV drop.
+ *
+ * @param tx - Prisma transaction context
+ * @param dir - Directory containing the CSV files
+ */
 export async function seedValidMtcLlfcCombinations(
   tx: Prisma.TransactionClient,
   dir: string,
@@ -104,6 +128,12 @@ export async function seedValidMtcLlfcCombinations(
   });
 }
 
+/**
+ * Load valid MTC/LLFC/SSC/PC combinations from the CSV drop.
+ *
+ * @param tx - Prisma transaction context
+ * @param dir - Directory containing the CSV files
+ */
 export async function seedValidMtcLlfcSscPcCombinations(
   tx: Prisma.TransactionClient,
   dir: string,
@@ -131,6 +161,11 @@ export async function seedValidMtcLlfcSscPcCombinations(
   });
 }
 
+/**
+ * Read a CSV file and return its rows.
+ *
+ * @param file - Full path to the CSV file
+ */
 export async function readCsv(file: string): Promise<string[][]> {
   try {
     const content = await fs.readFile(file, 'utf8');
