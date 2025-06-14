@@ -19,8 +19,12 @@ consistent.
 
 ## Contributing
 
-Run `yarn lint --fix`, `yarn format` and `yarn ts:check` before committing.
+Before committing:
+
+- Run `yarn lint --fix` to automatically fix lint issues.
+- Run `yarn format` to apply Prettier.
+- Run `yarn ts:check` to ensure type safety.
+
 Execute `yarn nx run-many --target=test` and `yarn test` to verify behaviour.
 Use the PR title pattern `feat(scope): summary` and label your PR with
 `release:patch`, `release:minor` or `release:major`.
-

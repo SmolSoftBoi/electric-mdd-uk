@@ -6,7 +6,10 @@
   "private": true,
   "scripts": {
     "nx": "nx",
-    "e2e": "nx run-many --target=e2e"
+    "e2e": "nx run-many --target=e2e",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "ts:check": "tsc -p apps/mdd-loader/tsconfig.app.json --noEmit"
   },
   "engines": {
     "node": ">=22"
