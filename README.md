@@ -32,5 +32,4 @@ Ensure the database connection variables are set before running:
 yarn nx serve mdd-loader -- --dir=./data
 ```
 
-It runs via the read-only Prisma client in line with the
-[AGENTS guidelines](./AGENTS.md).
+It runs via the project's read-only Prisma client.
