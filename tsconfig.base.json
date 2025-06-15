@@ -11,6 +11,10 @@
     "target": "es2015",
     "module": "esnext",
     "lib": ["es2020", "dom"],
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -20,5 +24,13 @@
       "root/pkg": ["package.json"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/vitest.config.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
 }
