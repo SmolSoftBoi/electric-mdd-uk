@@ -23,3 +23,14 @@ Execute `yarn nx run-many --target=test` and `yarn test` to verify behaviour.
 Use the PR title pattern `feat(scope): summary` and label your PR with
 `release:patch`, `release:minor` or `release:major`.
 
+## MDD Loader
+
+The loader ingests the monthly CSV drop located in `data/`.
+Ensure the database connection variables are set before running:
+
+```bash
+yarn nx serve mdd-loader -- --dir=./data
+```
+
+It runs via the read-only Prisma client in line with the
+[AGENTS guidelines](./AGENTS.md).
