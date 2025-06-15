@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "nx": "nx",
-    "e2e": "nx run-many --target=e2e"
+    "e2e": "nx run-many --target=e2e",
+    "lint": "nx run mdd-loader:lint"
   },
   "engines": {
     "node": ">=22"
