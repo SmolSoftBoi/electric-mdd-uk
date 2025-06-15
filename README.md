@@ -10,8 +10,7 @@
 
 ## Project Goals
 
-A self-service web and API tool that ensures ≥ 99.5% of new-connection quotes use
-valid top-line combinations, slashing average quote time and saving on
+A self-service web and API tool that ensures ≥ 99.5% of new-connection quotes use valid top-line combinations, slashing average quote time and saving on
 rejection fees and rework, while meeting engineering, compliance and
 observability standards. The project exposes the underlying Market Domain Data
 through a Next.js and Nx stack, sourced read-only via Prisma to keep records
