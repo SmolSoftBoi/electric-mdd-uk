@@ -1,6 +1,6 @@
 import { Response } from 'node-fetch';
 import { GET } from './route';
-import pkg from '../../../../../../package.json';
+import pkg from 'root/pkg';
 
 if (typeof globalThis.Response === 'undefined') {
   // Polyfill for Node.js test environment

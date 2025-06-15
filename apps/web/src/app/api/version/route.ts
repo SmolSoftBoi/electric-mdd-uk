@@ -1,4 +1,4 @@
-import pkg from '../../../../../../package.json';
+import pkg from 'root/pkg';
 
 /**
  * Return the current application version.
