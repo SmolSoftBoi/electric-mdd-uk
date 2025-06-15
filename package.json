@@ -7,7 +7,10 @@
   "scripts": {
     "nx": "nx",
     "e2e": "nx run-many --target=e2e",
-    "lint": "nx run mdd-loader:lint"
+    "lint": "nx run mdd-loader:lint",
+    "format": "prettier --write apps/web/src/app/api/version package.json",
+    "ts:check": "tsc -p apps/web/tsconfig.json --noEmit && tsc -p packages/engine/tsconfig.json --noEmit && tsc -p prisma/tsconfig.json --noEmit",
+    "test": "nx run-many --target=test"
   },
   "engines": {
     "node": ">=22"
