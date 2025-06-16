@@ -25,6 +25,13 @@ jobs:
           path: .nx/cache
           key: ${{ runner.os }}-nx-${{ hashFiles('**/yarn.lock') }}
           restore-keys: ${{ runner.os }}-nx-
+      # Restore Playwright browsers from the default cache directory
+      - name: Restore Playwright cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-playwright-
       - name: Enable corepack
         run: corepack enable
 
@@ -49,8 +56,17 @@ jobs:
       - name: E2E tests
         run: yarn e2e
 
+      # Save browsers cache even if tests fail
+      - name: Save Playwright cache
+        if: always()
+        uses: actions/cache/save@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/yarn.lock') }}
+
+      # Persist Nx build artifacts on every run
       - name: Save Nx cache
-        if: steps.nx-cache.outputs.cache-hit != 'true'
+        if: always() && steps.nx-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v3
         with:
           path: .nx/cache
