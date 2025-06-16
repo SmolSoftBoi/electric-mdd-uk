@@ -31,7 +31,16 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Restore Playwright cache
+        id: pw-cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package.json') }}
+          restore-keys: ${{ runner.os }}-playwright-
+
       - name: Install Playwright browsers
+        if: steps.pw-cache.outputs.cache-hit != 'true'
         run: yarn playwright install --with-deps
 
       - name: Lint
@@ -51,6 +60,13 @@ jobs:
 
       - name: E2E tests
         run: yarn e2e
+
+      - name: Save Playwright cache
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ steps.pw-cache.outputs.cache-primary-key }}
 
       - name: Save Nx cache
         if: steps.nx-cache.outputs.cache-hit != 'true'
