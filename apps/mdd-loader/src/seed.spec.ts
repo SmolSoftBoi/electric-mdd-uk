@@ -3,7 +3,7 @@ import path from 'node:path';
 const seed = jest.fn();
 const disconnect = jest.fn();
 
-jest.mock('prisma/seed', () => ({
+jest.mock('prisma', () => ({
   prisma: { $disconnect: disconnect },
   seed,
 }));

@@ -21,6 +21,7 @@
     "paths": {
       "engine": ["packages/engine/src/index.ts"],
       "generated/prisma": ["generated/prisma.ts"],
+      "prisma": ["prisma/seed.ts"],
       "prisma/seed": ["prisma/seed.ts"],
       "root/pkg": ["package.json"]
     }

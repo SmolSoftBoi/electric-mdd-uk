@@ -1,0 +1,11 @@
+{
+  "name": "prisma",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "main": "./seed.js",
+  "types": "./seed.d.ts",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

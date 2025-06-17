@@ -3,7 +3,7 @@
 
 import { parseArgs } from 'node:util';
 import path from 'node:path';
-import { prisma, seed } from 'prisma/seed';
+import { prisma, seed } from 'prisma';
 
 /**
  * Parse CLI arguments into options used by the seeder.
