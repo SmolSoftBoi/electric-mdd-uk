@@ -7,8 +7,8 @@
   "scripts": {
     "nx": "nx",
     "e2e": "nx run-many --target=e2e",
-    "lint": "nx run mdd-loader:lint",
-    "format": "prettier --write apps/web/src/app/api/version package.json",
+    "lint": "nx run-many --target=lint",
+    "format": "prettier --write .",
     "ts:check": "tsc --noEmit -p tsconfig.base.json",
     "test": "nx run-many --target=test",
     "postinstall": "playwright install"

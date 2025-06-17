@@ -4,7 +4,6 @@ import pkg from 'root/pkg';
 
 if (typeof globalThis.Response === 'undefined') {
   // Polyfill for Node.js test environment
-  // eslint-disable-next-line no-global-assign
   (globalThis as any).Response = Response;
 }
 

@@ -4,11 +4,9 @@ import { GET } from './route';
 
 if (typeof globalThis.Response === 'undefined') {
   // Polyfill for Node.js test environment
-  // eslint-disable-next-line no-global-assign
   (globalThis as any).Response = Response;
 }
 if (typeof globalThis.Request === 'undefined') {
-  // eslint-disable-next-line no-global-assign
   (globalThis as any).Request = Request;
 }
 
