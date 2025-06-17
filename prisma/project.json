@@ -1,0 +1,17 @@
+{
+  "name": "prisma",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "prisma",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/prisma",
+        "main": "prisma/seed.ts",
+        "tsConfig": "prisma/tsconfig.lib.json"
+      }
+    }
+  }
+}

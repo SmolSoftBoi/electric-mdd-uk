@@ -7,6 +7,7 @@
   "targets": {
     "build": {
       "executor": "@nx/esbuild:esbuild",
+      "dependsOn": ["prisma:build"],
       "outputs": [
         "{options.outputPath}"
       ],
