@@ -10,7 +10,8 @@
     "lint": "nx run mdd-loader:lint",
     "format": "prettier --write apps/web/src/app/api/version package.json",
     "ts:check": "tsc -p apps/web/tsconfig.json --noEmit && tsc -p packages/engine/tsconfig.json --noEmit && tsc -p prisma/tsconfig.json --noEmit",
-    "test": "nx run-many --target=test"
+    "test": "nx run-many --target=test",
+    "postinstall": "playwright install"
   },
   "engines": {
     "node": ">=22"
