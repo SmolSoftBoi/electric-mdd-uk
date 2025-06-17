@@ -12,4 +12,8 @@ describe('parseOptions', () => {
   it('parses short -d flag', () => {
     expect(parseOptions(['-d', 'bar'])).toEqual({ dir: 'bar' });
   });
+
+  it('ignores unknown flags', () => {
+    expect(parseOptions(['--foo', 'bar'])).toEqual({ dir: 'data' });
+  });
 });

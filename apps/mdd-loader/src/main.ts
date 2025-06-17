@@ -14,12 +14,13 @@ import { prisma, seed } from '../../../prisma/seed';
 export function parseOptions(argv: string[]): { dir: string } {
   const { values } = parseArgs({
     args: argv,
+    strict: false,
     options: {
       dir: { type: 'string', short: 'd', default: 'data' },
     },
   });
 
-  return { dir: values.dir };
+  return { dir: String(values.dir) };
 }
 
 /**
@@ -28,7 +29,9 @@ export function parseOptions(argv: string[]): { dir: string } {
  * @param argv - Arguments from the command line; defaults to `process.argv`.
  * @returns Resolves when the seed completes or rejects on error.
  */
-export async function main(argv: string[] = process.argv.slice(2)): Promise<void> {
+export async function main(
+  argv: string[] = process.argv.slice(2)
+): Promise<void> {
   const { dir } = parseOptions(argv);
   const dataDir = path.resolve(dir);
 
@@ -44,6 +47,5 @@ export async function main(argv: string[] = process.argv.slice(2)): Promise<void
 }
 
 if (require.main === module) {
-   
   main();
 }
