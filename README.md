@@ -4,9 +4,10 @@
 
 1. Open the repository in VS Code, and select **Reopen in Container**.
 2. Wait for dependencies to install with Yarn.
-3. Ports `3000` and `6006` are forwarded.
-4. Formatting, linting, and type checks run automatically after creation.
-5. The Nx CLI is installed globally with Yarn so you can run `nx` directly.
+3. Run `yarn playwright install --with-deps` inside the dev container to download required browsers.
+4. Ports `3000` and `6006` are forwarded.
+5. Formatting, linting, and type checks run automatically after creation.
+6. The Nx CLI is installed globally with Yarn so you can run `nx` directly.
 
 ## Project Goals
 
