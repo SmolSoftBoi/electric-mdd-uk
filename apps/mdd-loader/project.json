@@ -7,16 +7,22 @@
   "targets": {
     "build": {
       "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "platform": "node",
         "outputPath": "dist/apps/mdd-loader",
-        "format": ["cjs"],
+        "format": [
+          "cjs"
+        ],
         "bundle": false,
         "main": "apps/mdd-loader/src/main.ts",
         "tsConfig": "apps/mdd-loader/tsconfig.app.json",
-        "assets": ["apps/mdd-loader/src/assets"],
+        "assets": [
+          "apps/mdd-loader/src/assets"
+        ],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
@@ -41,10 +47,16 @@
       "continuous": true,
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
         "buildTarget": "mdd-loader:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": false,
+        "runtimeArgs": [
+          "-r",
+          "tsconfig-paths/register"
+        ]
       },
       "configurations": {
         "development": {
