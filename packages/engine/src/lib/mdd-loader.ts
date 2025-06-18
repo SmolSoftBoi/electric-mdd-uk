@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { parse } from 'date-fns';
 import { parse as parseCsv } from 'csv-parse/sync';
-import { Prisma } from '../../generated/prisma';
+import type { Prisma } from '../../generated/prisma';
 
 /**
  * Read a CSV file and return rows.
@@ -50,7 +50,7 @@ export async function seedMarketRoles(
 ): Promise<void> {
   const rows = await readCsv(path.join(dir, 'Market_Role.csv'));
   rows.shift();
-  await tx['marketRole'].createMany({
+  await tx.marketRole.createMany({
     data: rows.map(([code, description]) => ({ code, description })),
     skipDuplicates: true,
   });
@@ -65,7 +65,7 @@ export async function seedMarketParticipants(
 ): Promise<void> {
   const rows = await readCsv(path.join(dir, 'Market_Participant.csv'));
   rows.shift();
-  await tx['marketParticipant'].createMany({
+  await tx.marketParticipant.createMany({
     data: rows.map(([id, name, poolMemberId]) => ({
       id,
       name,
@@ -84,7 +84,7 @@ export async function seedMarketParticipantRoles(
 ): Promise<void> {
   const rows = await readCsv(path.join(dir, 'Market_Participant_Role.csv'));
   rows.shift();
-  await tx['marketParticipantRole'].createMany({
+  await tx.marketParticipantRole.createMany({
     data: rows.map((r) => ({
       marketParticipantId: r[0],
       roleCode: r[1],
@@ -115,7 +115,7 @@ export async function seedValidMtcLlfcCombinations(
 ): Promise<void> {
   const rows = await readCsv(path.join(dir, 'Valid_MTC_LLFC_Combination.csv'));
   rows.shift();
-  await tx['validMtcLlfcCombination'].createMany({
+  await tx.validMtcLlfcCombination.createMany({
     data: rows.map((r) => ({
       meterTimeswitchClassId: r[0],
       meterTimeswitchClassEffectiveFrom: parseDate(r[1])!,
@@ -140,7 +140,7 @@ export async function seedValidMtcLlfcSscPcCombinations(
     path.join(dir, 'Valid_MTC_LLFC_SSC_PC_Combination.csv')
   );
   rows.shift();
-  await tx['validMtcLlfcSscPcCombination'].createMany({
+  await tx.validMtcLlfcSscPcCombination.createMany({
     data: rows.map((r) => ({
       meterTimeswitchClassId: r[0],
       meterTimeswitchClassEffectiveFrom: parseDate(r[1])!,
