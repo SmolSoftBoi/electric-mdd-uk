@@ -1,11 +1,8 @@
-import { Response } from 'node-fetch';
+/**
+ * @jest-environment node
+ */
 import { GET } from './route';
 import pkg from 'root/pkg';
-
-if (typeof globalThis.Response === 'undefined') {
-  // Polyfill for Node.js test environment
-  (globalThis as any).Response = Response;
-}
 
 describe('version API', () => {
   it('returns package version', async () => {
