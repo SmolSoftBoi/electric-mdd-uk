@@ -1,6 +1,9 @@
+/* eslint-disable */
 export class PrismaClient {
   async $disconnect(): Promise<void> {}
-  async $transaction<T>(fn: (tx: Prisma.TransactionClient) => Promise<T>): Promise<T> {
+  async $transaction<T>(
+    fn: (tx: Prisma.TransactionClient) => Promise<T>
+  ): Promise<T> {
     return fn(new Prisma.TransactionClient());
   }
 }
