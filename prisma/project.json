@@ -10,7 +10,8 @@
       "options": {
         "outputPath": "dist/prisma",
         "main": "prisma/seed.ts",
-        "tsConfig": "prisma/tsconfig.lib.json"
+        "tsConfig": "prisma/tsconfig.lib.json",
+        "rootDir": "."
       }
     }
   }
