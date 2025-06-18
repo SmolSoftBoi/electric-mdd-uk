@@ -20,7 +20,7 @@ consistent.
 
 ## Contributing
 
-Run `yarn lint --fix`, `yarn format` and `yarn ts:check` before committing.
+Run `yarn lint --fix` and `yarn format` from the repo root (or `yarn nx run prisma:lint` for the Prisma package), then `yarn ts:check` before committing.
 Execute `yarn nx run-many --target=test` and `yarn test` to verify behaviour.
 Use the PR title pattern `feat(scope): summary` and label your PR with
 `release:patch`, `release:minor` or `release:major`.
