@@ -3,8 +3,9 @@
   "compilerOptions": {
     "outDir": "../dist/prisma",
     "declaration": true,
-    "types": ["node"]
+    "types": ["node"],
+    "rootDir": ".."
   },
   "include": ["*.ts"],
-  "exclude": ["*.spec.ts"]
+  "exclude": ["*.spec.ts", "vitest.config.ts"]
 }
