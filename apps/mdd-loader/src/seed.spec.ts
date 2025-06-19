@@ -27,7 +27,7 @@ describe('main', () => {
   });
 
   it('uses default data directory', async () => {
-    await main();
+    await main([]);
 
     expect(seed).toHaveBeenCalledWith(path.resolve('data'));
   });
