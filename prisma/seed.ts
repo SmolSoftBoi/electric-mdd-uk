@@ -15,10 +15,8 @@ export const prisma = new PrismaClient();
 /**
  * Seed the database with Market Domain Data from CSV files.
  */
-export async function seed(
-  dir: string = path.join(__dirname, '..', 'data')
-): Promise<void> {
-  const dataDir = dir;
+export async function seed(dir: string = path.resolve('data')): Promise<void> {
+  const dataDir = path.resolve(dir);
 
   try {
     await prisma.$transaction(async (tx) => {
