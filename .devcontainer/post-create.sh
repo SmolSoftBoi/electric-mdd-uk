@@ -5,8 +5,8 @@ set -euo pipefail
 
 yarn install
 
-# Install Nx globally so commands can run without yarn
-yarn global add nx
+# Install Nx so commands can run without extra config
+yarn dlx nx@latest --install || true
 
 yarn lint --fix
 
