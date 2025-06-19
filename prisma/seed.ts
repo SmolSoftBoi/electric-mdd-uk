@@ -1,7 +1,7 @@
 'use strict';
 
 import path from 'node:path';
-import { PrismaClient, Prisma } from 'generated/prisma';
+import { PrismaClient } from 'generated/prisma';
 import {
   seedMarketParticipantRoles,
   seedMarketParticipants,
