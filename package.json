@@ -6,11 +6,11 @@
   "private": true,
   "scripts": {
     "nx": "nx",
-    "e2e": "nx run-many --target=e2e",
-    "lint": "nx run-many --target=lint",
+    "e2e": "nx run-many --target=e2e --all --output-style=static",
+    "lint": "nx run-many --target=lint --all --fix --output-style=static",
     "format": "prettier --write .",
     "ts:check": "tsc --noEmit -p tsconfig.base.json",
-    "test": "nx run-many --target=test",
+    "test": "nx run-many --target=test --all --output-style=static",
     "postinstall": "playwright install"
   },
   "engines": {
