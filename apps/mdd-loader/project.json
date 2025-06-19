@@ -8,22 +8,16 @@
     "build": {
       "executor": "@nx/esbuild:esbuild",
       "dependsOn": ["prisma:build"],
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "platform": "node",
         "outputPath": "dist/apps/mdd-loader",
-        "format": [
-          "cjs"
-        ],
-        "bundle": false,
+        "format": ["cjs"],
+        "bundle": true,
         "main": "apps/mdd-loader/src/main.ts",
         "tsConfig": "apps/mdd-loader/tsconfig.app.json",
-        "assets": [
-          "apps/mdd-loader/src/assets"
-        ],
+        "assets": ["apps/mdd-loader/src/assets"],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
@@ -48,16 +42,11 @@
       "continuous": true,
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "mdd-loader:build",
         "runBuildTargetDependencies": false,
-        "runtimeArgs": [
-          "-r",
-          "tsconfig-paths/register"
-        ]
+        "runtimeArgs": ["-r", "tsconfig-paths/register"]
       },
       "configurations": {
         "development": {

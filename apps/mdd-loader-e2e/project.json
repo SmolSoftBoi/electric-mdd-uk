@@ -11,7 +11,7 @@
         "jestConfig": "apps/mdd-loader-e2e/jest.config.ts",
         "passWithNoTests": true
       },
-      "dependsOn": ["mdd-loader:build", "mdd-loader:serve"]
+      "dependsOn": ["mdd-loader:build"]
     }
   }
 }
