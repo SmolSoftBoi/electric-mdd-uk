@@ -1,19 +1,23 @@
 ## Scope
+
 These rules apply to every file under `/prisma/**` plus any script in
 `apps/mdd-loader/**` that touches Prisma Client.
 
 ---
 
-## 1  Schema Conventions
+## 1 Schema Conventions
+
 - **Model names** must be **PascalCase & singular**.
 - **Field names** use **camelCase**; never snake_case.
 - Add an **@@map("snake_case_table")** if the physical table needs snake_case.
 - Use **natural keys** for MDD reference tables  
   and **autoincrement Int** or **UUID** only for internal app tables.
-- Every mutable model must have  
+- Every mutable model must have
   ```prisma
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  ```
+
 ````
 
 * **Enum** everything that has < 50 known values; prefer `String` enums so role-code expansion (CP1589) is painless.
@@ -68,3 +72,4 @@ These rules apply to every file under `/prisma/**` plus any script in
 * Mask secrets in logs (`postgres://******:******@…`).
 * When generating seed data, never include real customer information.
 * Use parameterised queries; **no string concatenation** into SQL.
+````
