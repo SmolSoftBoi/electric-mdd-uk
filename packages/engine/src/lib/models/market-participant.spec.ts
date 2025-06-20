@@ -3,7 +3,11 @@ import { isMarketParticipant } from './market-participant';
 describe('isMarketParticipant', () => {
   it('validates a participant', () => {
     expect(
-      isMarketParticipant({ id: 'P1', name: 'Foo', poolMemberId: null })
+      isMarketParticipant({
+        id: 'PADD',
+        name: 'Fuse Energy Supply Limited',
+        poolMemberId: 'PADD',
+      })
     ).toBe(true);
   });
 });

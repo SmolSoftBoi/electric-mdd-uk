@@ -15,7 +15,7 @@ export interface ValidMtcLlfcSscPcCombination {
   profileClassId: number;
   profileClassEffectiveFrom: Date;
   effectiveTo: Date | null;
-  preservedTariffIndicator: string;
+  preservedTariffIndicator: boolean;
 }
 
 /**
@@ -41,6 +41,6 @@ export function isValidMtcLlfcSscPcCombination(
     typeof r['profileClassId'] === 'number' &&
     r['profileClassEffectiveFrom'] instanceof Date &&
     (r['effectiveTo'] instanceof Date || r['effectiveTo'] === null) &&
-    typeof r['preservedTariffIndicator'] === 'string'
+    typeof r['preservedTariffIndicator'] === 'boolean'
   );
 }
