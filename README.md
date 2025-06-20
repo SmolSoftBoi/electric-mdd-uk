@@ -31,7 +31,7 @@ The loader ingests the monthly CSV drop located in `data/`.
 Ensure the database connection variables are set before running:
 
 ```bash
-yarn nx serve mdd-loader -- --dir=./data
+yarn nx serve mdd-loader --args=--dir=./data
 ```
 
 It runs via the project's read-only Prisma client.
