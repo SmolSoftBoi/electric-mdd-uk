@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { isValidMtcLlfcSscPcCombination } from './valid-mtc-llfc-ssc-pc-combination';
 
 describe('isValidMtcLlfcSscPcCombination', () => {

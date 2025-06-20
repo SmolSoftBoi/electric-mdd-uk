@@ -9,5 +9,8 @@
     "tslib": "^2.3.0",
     "date-fns": "^4.1.0",
     "csv-parse": "^5.6.0"
+  },
+  "scripts": {
+    "vitest": "vitest"
   }
 }

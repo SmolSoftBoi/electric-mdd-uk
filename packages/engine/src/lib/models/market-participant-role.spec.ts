@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { isMarketParticipantRole } from './market-participant-role';
 import type { MarketRole } from './market-role';
 

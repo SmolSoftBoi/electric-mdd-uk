@@ -32,6 +32,7 @@
     "**/*.spec.tsx",
     "**/*.test.ts",
     "**/*.test.tsx",
-    "prisma/vitest.config.ts"
+    "prisma/vitest.config.ts",
+    "packages/engine/vitest.config.ts"
   ]
 }
