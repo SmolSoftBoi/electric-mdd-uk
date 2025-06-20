@@ -67,7 +67,8 @@
     "tsconfig-paths": "^4.2.0",
     "tslib": "^2.3.0",
     "typescript": "~5.8.2",
-    "typescript-eslint": "^8.29.0"
+    "typescript-eslint": "^8.29.0",
+    "vitest": "^1.5.0"
   },
   "dependencies": {
     "@engie-group/fluid-design-system": "^5.17.2",
