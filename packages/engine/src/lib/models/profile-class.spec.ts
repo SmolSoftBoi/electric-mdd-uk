@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { isProfileClass } from './profile-class';
 
 describe('isProfileClass', () => {
