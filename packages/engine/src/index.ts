@@ -6,3 +6,4 @@ export * from './lib/rules/gspGroupIdFormatRule';
 export * from './lib/validator';
 export * from './lib/aggregator';
 export * from './lib/data/mddRepo';
+export * from './lib/combination-generator';
