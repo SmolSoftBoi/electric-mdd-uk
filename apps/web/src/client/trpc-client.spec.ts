@@ -17,4 +17,12 @@ describe('createTrpcClient', () => {
       links: ['link'],
     });
   });
+
+  it('omits trailing slash from baseUrl', () => {
+    const { httpBatchLink } = require('@trpc/client');
+    createTrpcClient('https://api.example.com/');
+    expect(httpBatchLink).toHaveBeenLastCalledWith({
+      url: 'https://api.example.com/api/trpc',
+    });
+  });
 });

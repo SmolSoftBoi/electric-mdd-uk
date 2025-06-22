@@ -16,8 +16,9 @@ const transformer: DataTransformerOptions = {
  * @returns Configured tRPC client.
  */
 export function createTrpcClient(baseUrl = '') {
+  const normalized = baseUrl.replace(/\/$/, '');
   return createTRPCProxyClient<AppRouter>({
     transformer,
-    links: [httpBatchLink({ url: `${baseUrl}/api/trpc` })],
+    links: [httpBatchLink({ url: `${normalized}/api/trpc` })],
   });
 }
