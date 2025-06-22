@@ -4949,6 +4949,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@trpc/client@npm:10.45.0":
+  version: 10.45.0
+  resolution: "@trpc/client@npm:10.45.0"
+  peerDependencies:
+    "@trpc/server": 10.45.0
+  checksum: 10c0/f8df80923fd9bde42a657e6bcfb6dba79cac442f24a4d638290833fe08dc198cae1c185a99787de47667398b48a0ae04fab30985bc3698e8382515d6167302d5
+  languageName: node
+  linkType: hard
+
 "@trpc/server@npm:10.45.0":
   version: 10.45.0
   resolution: "@trpc/server@npm:10.45.0"
@@ -8340,6 +8349,7 @@ __metadata:
     "@swc/helpers": "npm:~0.5.11"
     "@testing-library/dom": "npm:10.4.0"
     "@testing-library/react": "npm:16.1.0"
+    "@trpc/client": "npm:10.45.0"
     "@trpc/server": "npm:10.45.0"
     "@types/jest": "npm:^29.5.12"
     "@types/node": "npm:18.16.9"
