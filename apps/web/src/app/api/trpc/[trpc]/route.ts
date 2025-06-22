@@ -7,6 +7,9 @@ export const dynamic = 'force-dynamic';
 
 /**
  * Handle GET requests for tRPC procedures.
+ *
+ * @param request - Incoming HTTP request.
+ * @returns tRPC response.
  */
 export function GET(request: Request) {
   return handleTrpcRequest(request);
@@ -14,5 +17,10 @@ export function GET(request: Request) {
 
 /**
  * Handle POST requests for tRPC procedures.
+ *
+ * @param request - Incoming HTTP request.
+ * @returns tRPC response.
  */
-export { GET as POST };
+export function POST(request: Request) {
+  return handleTrpcRequest(request);
+}
