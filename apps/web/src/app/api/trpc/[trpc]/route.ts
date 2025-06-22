@@ -2,14 +2,17 @@
 
 import { handleTrpcRequest } from '../../../../server/trpc';
 
-export const runtime = 'nodejs';
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 /**
  * Handle GET requests for tRPC procedures.
  */
-export const GET = handleTrpcRequest;
+export function GET(request: Request) {
+  return handleTrpcRequest(request);
+}
 
 /**
  * Handle POST requests for tRPC procedures.
  */
-export const POST = handleTrpcRequest;
+export { GET as POST };
