@@ -50,6 +50,9 @@ jobs:
       - name: Type check
         run: yarn ts:check
 
+      - name: Build
+        run: yarn nx run-many --target=build --all
+
       - name: Unit tests
         run: yarn nx run-many --target=test
 
