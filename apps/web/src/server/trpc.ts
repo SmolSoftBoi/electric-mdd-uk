@@ -4,7 +4,7 @@ import {
   fetchRequestHandler,
   FetchCreateContextFnOptions,
 } from '@trpc/server/adapters/fetch';
-import { randomUUID } from 'node:crypto';
+import { randomUUID } from 'crypto';
 
 import { runServerContext } from './context';
 import { appRouter, type TrpcContext } from './root-router';
