@@ -10,6 +10,6 @@ describe('RootLayout', () => {
       </RootLayout>,
       { container: document.documentElement }
     );
-    expect(baseElement).toBeTruthy();
+    expect(baseElement.textContent).toContain('Test Child');
   });
 });

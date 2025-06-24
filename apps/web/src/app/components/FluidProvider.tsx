@@ -1,11 +1,11 @@
 'use client';
 
-import { ReactNode, useEffect } from 'react';
+import { useEffect, type PropsWithChildren } from 'react';
 
 /**
- * Wraps children and lazily initialises the Fluid Design System.
+ * Enables the Engie Fluid Design System in the browser.
  */
-export default function FluidProvider({ children }: { children: ReactNode }) {
+export default function FluidProvider({ children }: PropsWithChildren) {
   useEffect(() => {
     if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'test') {
       void import('@engie-group/fluid-design-system/lib/auto-init.js');
