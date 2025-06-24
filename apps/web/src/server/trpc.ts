@@ -4,8 +4,7 @@ import {
   fetchRequestHandler,
   FetchCreateContextFnOptions,
 } from '@trpc/server/adapters/fetch';
-import { randomUUID } from 'node:crypto';
-
+// Use global Web Crypto API to support the Edge runtime
 import { runServerContext } from './context';
 import { appRouter, type TrpcContext } from './root-router';
 
@@ -14,7 +13,9 @@ export type { TrpcContext };
 export async function createContext({
   req,
 }: FetchCreateContextFnOptions): Promise<TrpcContext> {
-  return { requestId: req.headers.get('x-request-id') ?? randomUUID() };
+  return {
+    requestId: req.headers.get('x-request-id') ?? crypto.randomUUID(),
+  };
 }
 
 export type { AppRouter } from './root-router';

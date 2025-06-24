@@ -1,0 +1,36 @@
+name: Release Checks
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  checklist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Nx affected
+        run: yarn nx affected --target=test,lint,build
+
+      - name: Prisma validate
+        run: |
+          docker build -t app .
+          docker run --rm app yarn prisma validate
+
