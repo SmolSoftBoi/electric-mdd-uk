@@ -11,7 +11,7 @@ describe('useWizardState', () => {
     expect(result.current.step).toBe(1);
 
     act(() => {
-      result.current.next();
+      result.current.goTo(2);
     });
     expect(result.current.isLastStep).toBe(true);
 
@@ -19,5 +19,10 @@ describe('useWizardState', () => {
       result.current.back();
     });
     expect(result.current.step).toBe(1);
+
+    act(() => {
+      result.current.reset();
+    });
+    expect(result.current.step).toBe(0);
   });
 });

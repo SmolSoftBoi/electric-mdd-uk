@@ -8,8 +8,9 @@ import { useCallback, useState } from 'react';
  * @param totalSteps - Number of steps in the wizard.
  * @returns Wizard state helpers.
  */
-export function useWizardState(totalSteps: number) {
-  const [step, setStep] = useState(0);
+export function useWizardState(totalSteps: number, initialStep = 0) {
+  const normalised = Math.min(Math.max(initialStep, 0), totalSteps - 1);
+  const [step, setStep] = useState(normalised);
 
   const next = useCallback(() => {
     setStep((s) => Math.min(s + 1, totalSteps - 1));
@@ -26,6 +27,10 @@ export function useWizardState(totalSteps: number) {
     [totalSteps]
   );
 
+  const reset = useCallback(() => {
+    setStep(0);
+  }, []);
+
   return {
     step,
     isFirstStep: step === 0,
@@ -33,5 +38,6 @@ export function useWizardState(totalSteps: number) {
     next,
     back,
     goTo,
+    reset,
   } as const;
 }
