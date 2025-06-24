@@ -1,4 +1,5 @@
 import './global.css';
+import FluidProvider from './components/FluidProvider';
 
 export const metadata = {
   title: 'Welcome to electric MDD UK',
@@ -11,7 +12,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <FluidProvider>{children}</FluidProvider>
+      </body>
     </html>
   );
 }

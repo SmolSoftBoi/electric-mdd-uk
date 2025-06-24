@@ -1,3 +1,6 @@
+@import '@engie-group/fluid-design-tokens/css';
+@import '@engie-group/fluid-design-system/css';
+
 html {
   -webkit-text-size-adjust: 100%;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
