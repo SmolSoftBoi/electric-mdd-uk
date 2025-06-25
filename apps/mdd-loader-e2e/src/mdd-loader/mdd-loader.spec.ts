@@ -1,5 +1,5 @@
 import { execFileSync } from 'child_process';
-import { join } from 'path';
+import { join } from 'node:path';
 
 describe('CLI tests', () => {
   it('runs the seed script', () => {
