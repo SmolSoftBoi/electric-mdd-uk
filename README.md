@@ -9,6 +9,17 @@
 4. Ports `3000` and `6006` are forwarded.
 5. Formatting, linting, and type checks run automatically after creation.
 6. The Nx CLI is installed globally with Yarn so you can run `nx` directly.
+7. Use Node.js 22 or newer.
+
+## Local Development
+
+Run the web app with:
+
+```bash
+yarn nx run web:dev
+```
+
+Open http://localhost:3000 to view it.
 
 ## Project Goals
 
