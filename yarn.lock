@@ -4520,6 +4520,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/global@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "@storybook/global@npm:5.0.0"
+  checksum: 10c0/8f1b61dcdd3a89584540896e659af2ecc700bc740c16909a7be24ac19127ea213324de144a141f7caf8affaed017d064fea0618d453afbe027cf60f54b4a6d0b
+  languageName: node
+  linkType: hard
+
+"@storybook/react-dom-shim@npm:9.0.13":
+  version: 9.0.13
+  resolution: "@storybook/react-dom-shim@npm:9.0.13"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    storybook: ^9.0.13
+  checksum: 10c0/f11722bb93e8766d2fbef57540952a0299fec3f7a3a5f5e50a2bcc326332649a9cc9a5c9dc5cd78eedd4b5eb4cc3fc07e9535b6c5e482eaf5e8bf462fd44ab5c
+  languageName: node
+  linkType: hard
+
+"@storybook/react@npm:^9.0.13":
+  version: 9.0.13
+  resolution: "@storybook/react@npm:9.0.13"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    "@storybook/react-dom-shim": "npm:9.0.13"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    storybook: ^9.0.13
+    typescript: ">= 4.9.x"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/755a1bf694938cb19dce2923c1ead9ef166879d29cdf6ab2acfabe228fd6727d3303a1303e8482958d8c5acb6e3b6c9c13a0de466dfc06f02579ad56682d369e
+  languageName: node
+  linkType: hard
+
 "@svgr/babel-plugin-add-jsx-attribute@npm:8.0.0":
   version: 8.0.0
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:8.0.0"
@@ -8334,6 +8370,7 @@ __metadata:
     "@nx/react": "npm:^21.2.0"
     "@playwright/test": "npm:^1.36.0"
     "@prisma/client": "npm:^6.10.1"
+    "@storybook/react": "npm:^9.0.13"
     "@swc-node/register": "npm:~1.9.1"
     "@swc/cli": "npm:~0.6.0"
     "@swc/core": "npm:~1.5.7"
