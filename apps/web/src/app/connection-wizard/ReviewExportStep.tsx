@@ -1,17 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { startTransition } from 'react';
 
 /**
  * Review entered details and export them.
  */
 export default function ReviewExportStep() {
-  const [ready, setReady] = useState(false);
-  useEffect(() => setReady(true), []);
-
   const handleExport = () => {
-    // TODO: wire PDF export once API is available
-    alert('Exported!');
+    // Trigger the browser's print dialog so the user can export as PDF
+    startTransition(() => {
+      window.print();
+    });
   };
 
   return (
@@ -22,7 +21,7 @@ export default function ReviewExportStep() {
         type="button"
         className="nj-btn"
         onClick={handleExport}
-        disabled={!ready}
+        aria-label="Export details as PDF"
       >
         Export
       </button>
