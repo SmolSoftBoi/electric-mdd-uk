@@ -1,5 +1,6 @@
 import './global.css';
 import FluidProvider from './components/FluidProvider';
+import Header from './components/Header';
 
 /**
  * Document-wide metadata.
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <FluidProvider>
+          <Header />
           <main>{children}</main>
         </FluidProvider>
       </body>
