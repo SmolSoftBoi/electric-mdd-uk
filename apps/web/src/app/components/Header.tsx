@@ -9,11 +9,11 @@ export default function Header() {
       <div className="nj-header__group">
         <div className="nj-header__head">
           <Link href="/" className="nj-header__logo">
-            electric MDD UK ⚡️
+            Electric MDD UK ⚡️
           </Link>
         </div>
-        <nav className="nj-header__nav" aria-label="primary">
-          <ul className="nj-header__nav-list">
+        <nav className="container" role="navigation">
+          <ul className="nj-header__nav nj-header__nav--panel">
             <li className="nj-header__nav-item">
               <Link href="/" className="nj-header__nav-link">
                 Home
