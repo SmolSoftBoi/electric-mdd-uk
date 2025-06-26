@@ -9,7 +9,7 @@ jest.mock('next/font/google', () => ({
   Lato: jest.fn(() => ({ className: 'lato' })),
 }));
 
-import { lato } from '../src/app/layout';
+import { lato } from '../src/app/fonts';
 import RootLayout from '../src/app/layout';
 
 describe('RootLayout', () => {

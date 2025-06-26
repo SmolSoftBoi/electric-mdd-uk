@@ -1,15 +1,8 @@
 import Head from 'next/head';
-import { Lato } from 'next/font/google';
 import FluidProvider from './components/FluidProvider';
 import Header from './components/Header';
+import { lato } from './fonts';
 import './global.css';
-
-export const lato = Lato({
-  weight: ['300', '400', '700'],
-  display: 'swap',
-  subsets: ['latin'],
-  preload: true,
-});
 
 /**
  * Document-wide metadata.
