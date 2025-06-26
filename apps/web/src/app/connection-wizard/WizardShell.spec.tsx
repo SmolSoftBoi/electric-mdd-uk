@@ -14,9 +14,9 @@ describe('WizardShell', () => {
     );
 
     expect(screen.getByText('one')).toBeTruthy();
-    fireEvent.click(screen.getByText('Next'));
+    fireEvent.click(await screen.findByText('Next'));
     expect(screen.getByText('two')).toBeTruthy();
-    fireEvent.click(screen.getByText('Back'));
+    fireEvent.click(await screen.findByText('Back'));
     expect(screen.getByText('one')).toBeTruthy();
   });
 });

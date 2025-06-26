@@ -1478,6 +1478,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@engie-group/fluid-design-system-react@npm:^2.16.7":
+  version: 2.16.7
+  resolution: "@engie-group/fluid-design-system-react@npm:2.16.7"
+  dependencies:
+    "@engie-group/fluid-design-system": "npm:5.18.0"
+    "@engie-group/fluid-design-tokens": "npm:5.12.0"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 10c0/49f56d6e4950d0818cad63c63c052d995ecca2b7a42916f902649db982b6abdd6bb34c47d73c5bc985469a8de6ff6135de5c00af8ad18629bc77729f4a14dc5d
+  languageName: node
+  linkType: hard
+
+"@engie-group/fluid-design-system@npm:5.18.0":
+  version: 5.18.0
+  resolution: "@engie-group/fluid-design-system@npm:5.18.0"
+  dependencies:
+    "@engie-group/fluid-design-tokens": "npm:5.12.0"
+    "@floating-ui/dom": "npm:1.6.3"
+  checksum: 10c0/3b168976a2271cdcf8f86bdaad1521546367b08fb2004c333ad66581073d28e8da842535cdc853d474419063fe855747cbf570e798fe41b9b736396be879d39c
+  languageName: node
+  linkType: hard
+
 "@engie-group/fluid-design-system@npm:^5.17.2":
   version: 5.17.2
   resolution: "@engie-group/fluid-design-system@npm:5.17.2"
@@ -8354,6 +8377,7 @@ __metadata:
   resolution: "electric-mdd-uk@workspace:."
   dependencies:
     "@engie-group/fluid-design-system": "npm:^5.17.2"
+    "@engie-group/fluid-design-system-react": "npm:^2.16.7"
     "@eslint/compat": "npm:^1.1.1"
     "@eslint/eslintrc": "npm:^2.1.1"
     "@eslint/js": "npm:^9.8.0"

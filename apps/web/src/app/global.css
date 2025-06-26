@@ -1,5 +1,5 @@
 @import '@engie-group/fluid-design-tokens/css';
-@import '@engie-group/fluid-design-system/css';
+@import '@engie-group/fluid-design-system-react/css';
 
 html {
   -webkit-text-size-adjust: 100%;
