@@ -33,4 +33,3 @@ jobs:
         run: |
           docker build -t app .
           docker run --rm app yarn prisma validate
-
