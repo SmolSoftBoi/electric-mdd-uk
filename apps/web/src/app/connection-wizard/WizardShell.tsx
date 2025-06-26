@@ -1,7 +1,18 @@
 'use client';
 
 import { PropsWithChildren } from 'react';
-import { NJButton } from '@engie-group/fluid-design-system-react';
+import dynamic from 'next/dynamic';
+import type { ComponentProps } from 'react';
+
+type ButtonProps = ComponentProps<
+  typeof import('@engie-group/fluid-design-system-react').NJButton
+>;
+
+const NJButton = dynamic<ButtonProps>(
+  () =>
+    import('@engie-group/fluid-design-system-react').then((m) => m.NJButton),
+  { ssr: false }
+);
 import { useWizardState } from './useWizardState';
 
 /**

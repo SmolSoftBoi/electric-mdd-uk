@@ -11,12 +11,12 @@ describe('ConnectionWizardPage', () => {
     expect(heading).toBeTruthy();
   });
 
-  it('includes review step', () => {
+  it('includes review step', async () => {
     render(<ConnectionWizardPage />);
-    const next = screen.getByText('Next');
+    const next = await screen.findByText('Next');
     fireEvent.click(next);
-    fireEvent.click(next);
-    fireEvent.click(next);
-    expect(screen.getByRole('button', { name: /export/i })).toBeTruthy();
+    fireEvent.click(await screen.findByText('Next'));
+    fireEvent.click(await screen.findByText('Next'));
+    expect(await screen.findByRole('button', { name: /export/i })).toBeTruthy();
   });
 });
