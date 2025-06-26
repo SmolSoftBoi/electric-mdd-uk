@@ -12,4 +12,11 @@ describe('RootLayout', () => {
     );
     expect(baseElement.textContent).toContain('Test Child');
   });
+
+  it('includes the navigation header', () => {
+    const { container } = render(<RootLayout></RootLayout>, {
+      container: document.documentElement,
+    });
+    expect(container.querySelector('header.nj-header')).toBeTruthy();
+  });
 });
