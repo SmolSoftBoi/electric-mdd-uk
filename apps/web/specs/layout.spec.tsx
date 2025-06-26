@@ -5,6 +5,11 @@ jest.mock('next/head', () => ({
   __esModule: true,
   default: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
 }));
+jest.mock('next/font/google', () => ({
+  Lato: jest.fn(() => ({ className: 'lato' })),
+}));
+
+import { lato } from '../src/app/layout';
 import RootLayout from '../src/app/layout';
 
 describe('RootLayout', () => {
@@ -27,7 +32,7 @@ describe('RootLayout', () => {
     expect(container.querySelector('header.nj-header')).toBeTruthy();
   });
 
-  it('links Material Icons and Lato fonts', () => {
+  it('applies Lato class and links Material Icons', () => {
     document.documentElement.innerHTML = '';
     const { container } = render(<RootLayout />, {
       container: document.documentElement,
@@ -37,8 +42,6 @@ describe('RootLayout', () => {
     expect(hrefs).toContain(
       'https://fonts.googleapis.com/icon?family=Material+Icons'
     );
-    expect(hrefs).toContain(
-      'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap'
-    );
+    expect(document.querySelector('html')?.className).toContain(lato.className);
   });
 });
