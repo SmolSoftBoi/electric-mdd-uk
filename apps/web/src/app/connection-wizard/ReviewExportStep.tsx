@@ -1,6 +1,7 @@
 'use client';
 
 import { startTransition } from 'react';
+import { NJButton } from '@engie-group/fluid-design-system-react';
 
 /**
  * Review entered details and export them.
@@ -17,14 +18,11 @@ export default function ReviewExportStep() {
     <section>
       <h2>Review your details</h2>
       <p>Everything looks good. Click export to download a PDF.</p>
-      <button
-        type="button"
-        className="nj-btn"
+      <NJButton
         onClick={handleExport}
+        label="Export"
         aria-label="Export details as PDF"
-      >
-        Export
-      </button>
+      />
     </section>
   );
 }

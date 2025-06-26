@@ -1,6 +1,7 @@
 'use client';
 
 import { PropsWithChildren } from 'react';
+import { NJButton } from '@engie-group/fluid-design-system-react';
 import { useWizardState } from './useWizardState';
 
 /**
@@ -30,17 +31,9 @@ export default function WizardShell({
       {steps[step]}
       <nav className="mt-4 flex gap-2">
         {!isFirstStep && (
-          <button
-            type="button"
-            onClick={back}
-            className="nj-btn nj-btn--inverse"
-          >
-            Back
-          </button>
+          <NJButton variant="inverse" onClick={back} label="Back" />
         )}
-        <button type="button" onClick={handleNext} className="nj-btn">
-          {isLastStep ? 'Finish' : 'Next'}
-        </button>
+        <NJButton onClick={handleNext} label={isLastStep ? 'Finish' : 'Next'} />
       </nav>
     </section>
   );
