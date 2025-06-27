@@ -1,3 +1,6 @@
+/**
+ * Global head elements for the application.
+ */
 export default function Head() {
   return (
     <>
