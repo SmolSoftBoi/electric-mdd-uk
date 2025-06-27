@@ -5,7 +5,8 @@ jest.mock('next/font/google', () => ({
 }));
 
 import { lato } from '../src/app/fonts';
-import RootLayout, { metadata } from '../src/app/layout';
+import RootLayout from '../src/app/layout';
+import Head from '../src/app/head';
 
 describe('RootLayout', () => {
   it('renders children', () => {
@@ -31,9 +32,9 @@ describe('RootLayout', () => {
     document.documentElement.innerHTML = '';
     render(<RootLayout />, { container: document.documentElement });
     expect(document.querySelector('html')?.className).toContain(lato.className);
-    const links = metadata.icons?.other ?? [];
-    const hrefs = Array.isArray(links) ? links.map((l) => l.url) : [links.url];
-    expect(hrefs).toContain(
+    const { container } = render(<Head />);
+    const link = container.querySelector('link[rel="stylesheet"]');
+    expect(link?.getAttribute('href')).toBe(
       'https://fonts.googleapis.com/icon?family=Material+Icons'
     );
   });
