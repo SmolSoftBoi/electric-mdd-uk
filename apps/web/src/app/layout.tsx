@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import type { Metadata } from 'next';
 import FluidProvider from './components/FluidProvider';
 import Header from './components/Header';
 import { lato } from './fonts';
@@ -7,8 +7,16 @@ import './global.css';
 /**
  * Document-wide metadata.
  */
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Welcome to electric MDD UK',
+  icons: {
+    other: [
+      {
+        url: 'https://fonts.googleapis.com/icon?family=Material+Icons',
+        rel: 'stylesheet',
+      },
+    ],
+  },
 };
 
 /**
@@ -21,12 +29,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={lato.className}>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          rel="stylesheet"
-        />
-      </Head>
       <body>
         <FluidProvider>
           <Header />

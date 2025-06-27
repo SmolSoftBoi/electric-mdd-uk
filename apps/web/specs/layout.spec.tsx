@@ -1,16 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-
-jest.mock('next/head', () => ({
-  __esModule: true,
-  default: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
-}));
 jest.mock('next/font/google', () => ({
   Lato: jest.fn(() => ({ className: 'lato' })),
 }));
 
 import { lato } from '../src/app/fonts';
-import RootLayout from '../src/app/layout';
+import RootLayout, { metadata } from '../src/app/layout';
 
 describe('RootLayout', () => {
   it('renders children', () => {
@@ -32,16 +27,14 @@ describe('RootLayout', () => {
     expect(container.querySelector('header.nj-header')).toBeTruthy();
   });
 
-  it('applies Lato class and links Material Icons', () => {
+  it('applies Lato class and defines Material Icons', () => {
     document.documentElement.innerHTML = '';
-    const { container } = render(<RootLayout />, {
-      container: document.documentElement,
-    });
-    const links = Array.from(container.querySelectorAll('link'));
-    const hrefs = links.map((link) => link.getAttribute('href'));
+    render(<RootLayout />, { container: document.documentElement });
+    expect(document.querySelector('html')?.className).toContain(lato.className);
+    const links = metadata.icons?.other ?? [];
+    const hrefs = Array.isArray(links) ? links.map((l) => l.url) : [links.url];
     expect(hrefs).toContain(
       'https://fonts.googleapis.com/icon?family=Material+Icons'
     );
-    expect(document.querySelector('html')?.className).toContain(lato.className);
   });
 });
