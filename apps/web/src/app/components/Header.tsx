@@ -12,7 +12,7 @@ export default function Header() {
             Electric MDD UK ⚡️
           </Link>
         </div>
-        <nav className="container" role="navigation">
+        <nav className="container block" role="navigation">
           <ul className="nj-header__nav nj-header__nav--panel">
             <li className="nj-header__nav-item">
               <Link href="/" className="nj-header__nav-link">

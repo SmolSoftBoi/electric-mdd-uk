@@ -30,7 +30,7 @@ export default function RootLayout({
       <body>
         <FluidProvider>
           <Header />
-          <main>{children}</main>
+          <main className="container">{children}</main>
         </FluidProvider>
       </body>
     </html>
