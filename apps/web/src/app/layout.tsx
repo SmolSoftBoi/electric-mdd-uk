@@ -9,14 +9,6 @@ import './global.css';
  */
 export const metadata: Metadata = {
   title: 'Welcome to electric MDD UK',
-  icons: {
-    other: [
-      {
-        url: 'https://fonts.googleapis.com/icon?family=Material+Icons',
-        rel: 'stylesheet',
-      },
-    ],
-  },
 };
 
 /**
